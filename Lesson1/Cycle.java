@@ -6,7 +6,6 @@ public class Cycle {
 
         int i = 6;
         int result = -6;
-
         while (i >= result) {
             System.out.println(i);
             i -= 2;
@@ -17,7 +16,7 @@ public class Cycle {
         int sum = 0;
         do {
             if (j % 2 != 0) {
-                sum+=j;
+                sum += j;
             }
             j++;
         } while (j <= result);
