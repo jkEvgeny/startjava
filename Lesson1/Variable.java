@@ -1,21 +1,21 @@
 public class Variable {
     public static void main(String[] args) {
-        byte byteValue = 1;
+        byte cpuCount = 2;
         short cpuType = 5;
         int ram = 8;
-        long longValue = 1;
-        float floatValue = 1;
+        long totalDiskSpace = 208;
+        float freeDiskSpace = 14.2;
         double cpuFrequency = 2.11;
         char intelCore = 'i';
-        boolean booleanValue = false;
+        boolean isClear = false;
 
-        System.out.println("Values: " + byteValue + " " +
-                shortValue + " " +
-                intValue + " " +
-                longValue + " " +
-                floatValue + " " +
-                doubleValue + " " +
-                charValue + " " +
-                booleanValue);
+        System.out.println("Values: " + cpuCount + " " +
+                cpuType + " " +
+                ram + " " +
+                totalDiskSpace + " " +
+                freeDiskSpace + " " +
+                cpuFrequency + " " +
+                intelCore + " " +
+                isClear);
     }
 }
