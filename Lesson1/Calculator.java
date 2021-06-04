@@ -5,13 +5,13 @@ public class Calculator {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter the first value: ");
-        int a = in.nextInt()());
+        int a = in.nextInt();
 
         System.out.println("Enter the math operation (+, -, *, /, ^, %) :  ");
         String sign = in.nextLine();
 
         System.out.println("Enter the first value: ");
-        int b =  in.nextInt()in.nextLine());
+        int b =  in.nextInt();
 
         int result = 0;
         if (sign.equals("+")) {

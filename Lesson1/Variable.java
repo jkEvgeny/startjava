@@ -1,12 +1,12 @@
 public class Variable {
     public static void main(String[] args) {
         byte byteValue = 1;
-        short shortValue = 5;
-        int intValue = 8;
+        short cpuType = 5;
+        int ram = 8;
         long longValue = 1;
         float floatValue = 1;
-        double doubleValue = 1.6;
-        char charValue = 'i';
+        double cpuFrequency = 2.11;
+        char intelCore = 'i';
         boolean booleanValue = false;
 
         System.out.println("Values: " + byteValue + " " +
