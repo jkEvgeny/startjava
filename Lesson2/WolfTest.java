@@ -7,7 +7,7 @@ public class WolfTest {
         wolf.setColor("gray");
         wolf.setWeight(30);
         wolf.setAge(5);
-        System.out.println(wolf.toString());
+        System.out.println(wolf);
 
         wolf.go();
         wolf.run();
