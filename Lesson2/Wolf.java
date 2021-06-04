@@ -63,7 +63,7 @@ public class Wolf {
     }
 
     void howl() {
-        System.out.println("Woooo!");
+        System.out.println("Безумно можно быть первым!");
     }
 
     void hunt() {
