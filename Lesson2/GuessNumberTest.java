@@ -11,7 +11,8 @@ public class GuessNumberTest {
         Player player2 = new Player(secondName);
         String yesOrNo;
         do {
-            GuessNumber.doGame(player1, player2);
+            GuessNumber guessNumber = new GuessNumber();
+            guessNumber.start(player1, player2);
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 yesOrNo = in.nextLine();
