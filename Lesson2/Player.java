@@ -1,4 +1,8 @@
 public class Player {
+    public String getName() {
+        return name;
+    }
+
     private String name;
     private int number;
 
