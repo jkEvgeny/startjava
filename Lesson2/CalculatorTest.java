@@ -14,10 +14,10 @@ public class CalculatorTest {
 
             System.out.println("Введите второе число: ");
             int secondNumber = scan.nextInt();
+            scan.nextLine();
 
             Calculator.calculate(firstNumber, secondNumber, sign);
             do {
-                scan.nextLine();
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 yesOrNo = scan.nextLine();
             } while (!yesOrNo.equals("yes") && !yesOrNo.equals("no"));

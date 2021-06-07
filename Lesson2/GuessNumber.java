@@ -1,34 +1,43 @@
 import java.util.Scanner;
 
 public class GuessNumber {
-    public void start(Player player1, Player player2) {
-        int hiddenNumber = (int) (Math.random() * 100);
+    Player player1;
+    Player player2;
+
+    public GuessNumber(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+
+    public void start() {
+        int hiddenNumber = (int) (Math.random() * 101);
         Scanner in = new Scanner(System.in);
         int enterNumber;
+        boolean yesOrNo;
         do {
             System.out.println(player1.getName() + ", введите число : ");
             player1.setNumber(in.nextInt());
             enterNumber = player1.getNumber();
-
-            if (!compareNumbers(hiddenNumber, enterNumber)) {
+            yesOrNo = !compareNumbers(hiddenNumber, enterNumber, player1);
+            if (yesOrNo) {
                 System.out.println(player2.getName() + ", введите число : ");
                 player2.setNumber(in.nextInt());
                 enterNumber = player2.getNumber();
+                yesOrNo = !compareNumbers(hiddenNumber, enterNumber, player2);
             }
-        } while (!compareNumbers(hiddenNumber, enterNumber));
+        } while (yesOrNo);
     }
 
-    private boolean compareNumbers(int hiddenNumber, int enterNumber) {
+    private boolean compareNumbers(int hiddenNumber, int enterNumber, Player player) {
         if (enterNumber == hiddenNumber) {
-            System.out.println("Поздравляю, число угадано!");
+            System.out.println("Поздравляю," + player.getName() + " число угадано!");
             return true;
-        } else {
-            if (enterNumber < hiddenNumber) {
-                System.out.println("Данное число меньше того, что загадал компьютер");
-            } else if (enterNumber > hiddenNumber) {
-                System.out.println("Данное число больше того, что загадал компьютер");
-            }
-            return false;
         }
+        if (enterNumber < hiddenNumber) {
+            System.out.println("Данное число меньше того, что загадал компьютер");
+        } else if (enterNumber > hiddenNumber) {
+            System.out.println("Данное число больше того, что загадал компьютер");
+        }
+        return false;
     }
 }
