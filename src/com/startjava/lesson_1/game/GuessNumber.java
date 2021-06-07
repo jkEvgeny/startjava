@@ -1,3 +1,4 @@
+package com.startjava.lesson_1.game;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
