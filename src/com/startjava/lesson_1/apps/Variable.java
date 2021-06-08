@@ -1,4 +1,5 @@
 package com.startjava.lesson_1.apps;
+
 public class Variable {
     public static void main(String[] args) {
         byte cpuCount = 2;
