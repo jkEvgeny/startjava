@@ -23,8 +23,8 @@ public class GuessNumber {
                 player2.setNumber(in.nextInt());
             }
         } while (!compareNumbers(player2) && isOk);
-        System.out.println("Числа игрока "+ player1.getName()+ " :" + player1.getAllNumbers());
-        System.out.println("Числа игрока "+ player2.getName()+ " :" + player2.getAllNumbers());
+        player1.writeAllNumbers();
+        player2.writeAllNumbers();
         player1.clearArray();
         player2.clearArray();
     }
@@ -35,14 +35,11 @@ public class GuessNumber {
         }
         if (player.getNumber() == hiddenNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число " + hiddenNumber +
-                    " c " + player.possition + " попытки ");
+                    " c " + player.index + " попытки ");
             return true;
         }
-        if (player.getNumber() < hiddenNumber) {
-            System.out.println("Данное число меньше того, что загадал компьютер");
-        } else if (player.getNumber() > hiddenNumber) {
-            System.out.println("Данное число больше того, что загадал компьютер");
-        }
+        String moreOrLess = (player.getNumber() < hiddenNumber) ? "меньше" : "больше";
+        System.out.println("Данное число " + moreOrLess + " того, что загадал компьютер");
         return false;
     }
 }

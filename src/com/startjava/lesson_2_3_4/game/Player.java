@@ -1,12 +1,13 @@
 package com.startjava.lesson_2_3_4.game;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Player {
 
     private String name;
     private int[] numbers = new int[10];
-    public int possition = 0;
+    public int index = 0;
     public boolean isEndGame = false;
 
     public Player(String name) {
@@ -17,31 +18,34 @@ public class Player {
         return name;
     }
 
-    public String getAllNumbers() {
-        String out = "";
-        int [] miniNumbers = Arrays.copyOf(numbers, possition);
-        for (int i = 0; i < miniNumbers.length; i++) {
-            out += " " + miniNumbers[i];
-        }
-        return out;
+    public int[] getAllNumbers() {
+        return Arrays.copyOf(numbers, index);
     }
 
     public int getNumber() {
-        return numbers[possition - 1];
+        return numbers[index - 1];
     }
 
     public void setNumber(int number) {
-        if (possition < 10) {
-            this.numbers[possition] = number;
-            possition++;
+        if (index < 10) {
+            numbers[index] = number;
+            index++;
         } else {
-            System.out.println("У " + this.getName() + " закончились попытки");
+            System.out.println("У " + getName() + " закончились попытки");
             isEndGame = true;
         }
     }
 
     public void clearArray() {
-        Arrays.fill(numbers, 0);
-        possition = 0;
+        Arrays.fill(numbers, 0, index, 0);
+        index = 0;
+    }
+
+    public void writeAllNumbers() {
+        System.out.println("Числа игрока " + getName() + " :" +
+                Arrays.stream(getAllNumbers())
+                        .mapToObj(String::valueOf)
+                        .collect(Collectors.joining(" "))
+        );
     }
 }
