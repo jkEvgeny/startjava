@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.game;
+package com.startjava.lesson_2_3_4.game;
 
 import java.util.Scanner;
 
@@ -14,20 +14,28 @@ public class GuessNumber {
 
     public void start() {
         Scanner in = new Scanner(System.in);
+        boolean isOk;
         do {
             System.out.println(player1.getName() + ", введите число : ");
             player1.setNumber(in.nextInt());
-
-            if (!compareNumbers(player1)) {
+            if (isOk = !compareNumbers(player1)) {
                 System.out.println(player2.getName() + ", введите число : ");
                 player2.setNumber(in.nextInt());
             }
-        } while (!compareNumbers(player2));
+        } while (!compareNumbers(player2) && isOk);
+        System.out.println("Числа игрока "+ player1.getName()+ " :" + player1.getAllNumbers());
+        System.out.println("Числа игрока "+ player2.getName()+ " :" + player2.getAllNumbers());
+        player1.clearArray();
+        player2.clearArray();
     }
 
     private boolean compareNumbers(Player player) {
+        if (player.isEndGame) {
+            return true;
+        }
         if (player.getNumber() == hiddenNumber) {
-            System.out.println("Поздравляю," + player.getName() + " число угадано!");
+            System.out.println("Игрок " + player.getName() + " угадал число " + hiddenNumber +
+                    " c " + player.possition + " попытки ");
             return true;
         }
         if (player.getNumber() < hiddenNumber) {

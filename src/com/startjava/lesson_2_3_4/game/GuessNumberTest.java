@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.game;
+package com.startjava.lesson_2_3_4.game;
 
 import java.util.Scanner;
 
@@ -9,6 +9,7 @@ public class GuessNumberTest {
         String firstName = in.nextLine();
         System.out.println("Введите имя второго игрока: ");
         String secondName = in.nextLine();
+        System.out.println("У каждого игрока по 10 попыток ");
         Player player1 = new Player(firstName);
         Player player2 = new Player(secondName);
         String yesOrNo;

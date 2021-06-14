@@ -6,7 +6,7 @@ public class Variable {
         short cpuType = 5;
         int ram = 8;
         long totalDiskSpace = 208;
-        float freeDiskSpace = 14.2;
+        float freeDiskSpace = 142;
         double cpuFrequency = 2.11;
         char intelCore = 'i';
         boolean isClear = false;
