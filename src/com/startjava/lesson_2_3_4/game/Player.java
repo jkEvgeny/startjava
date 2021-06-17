@@ -7,8 +7,7 @@ public class Player {
 
     private String name;
     private int[] numbers = new int[10];
-    public int index = 0;
-    public boolean isEndGame = false;
+    public int index;
 
     public Player(String name) {
         this.name = name;
@@ -27,25 +26,15 @@ public class Player {
     }
 
     public void setNumber(int number) {
-        if (index < 10) {
-            numbers[index] = number;
-            index++;
-        } else {
-            System.out.println("У " + getName() + " закончились попытки");
-            isEndGame = true;
-        }
+        numbers[index] = number;
     }
 
-    public void clearArray() {
+    public void clearNumbers() {
         Arrays.fill(numbers, 0, index, 0);
         index = 0;
     }
 
-    public void writeAllNumbers() {
-        System.out.println("Числа игрока " + getName() + " :" +
-                Arrays.stream(getAllNumbers())
-                        .mapToObj(String::valueOf)
-                        .collect(Collectors.joining(" "))
-        );
+    public void enterNewNumber(){
+        System.out.println(getName() + ", введите число : ");
     }
 }
