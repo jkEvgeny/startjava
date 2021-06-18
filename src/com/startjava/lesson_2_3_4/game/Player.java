@@ -7,10 +7,18 @@ public class Player {
 
     private String name;
     private int[] numbers = new int[10];
-    public int index;
+    private int index;
 
     public Player(String name) {
         this.name = name;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void addIndex() {
+        this.index++;
     }
 
     public String getName() {
@@ -34,7 +42,11 @@ public class Player {
         index = 0;
     }
 
-    public void enterNewNumber(){
-        System.out.println(getName() + ", введите число : ");
+    public void writePlayersNumbers() {
+        System.out.println("Числа игрока " + getName() + " :" +
+                Arrays.stream(getAllNumbers())
+                        .mapToObj(String::valueOf)
+                        .collect(Collectors.joining(" "))
+        );
     }
 }

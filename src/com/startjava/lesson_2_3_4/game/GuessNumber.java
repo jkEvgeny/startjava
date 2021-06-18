@@ -18,14 +18,14 @@ public class GuessNumber {
         Scanner in = new Scanner(System.in);
 
         do {
-            if (player1.index < 10 || player2.index < 10) {
-                player1.enterNewNumber();
+            if (player1.getIndex() < 10 || player2.getIndex() < 10) {
+                System.out.println(player1.getName() + ", введите число : ");
                 player1.setNumber(in.nextInt());
-                player1.index++;
+                player1.addIndex();
                 if (!compareNumbers(player1)) {
-                    player2.enterNewNumber();
+                    System.out.println(player2.getName() + ", введите число : ");
                     player2.setNumber(in.nextInt());
-                    player2.index++;
+                    player2.addIndex();
                 } else {
                     break;
                 }
@@ -34,17 +34,8 @@ public class GuessNumber {
                 break;
             }
         } while (!compareNumbers(player2));
-        System.out.println("Числа игрока " + player1.getName() + " :" +
-                Arrays.stream(player1.getAllNumbers())
-                        .mapToObj(String::valueOf)
-                        .collect(Collectors.joining(" "))
-        );
-
-        System.out.println("Числа игрока " + player2.getName() + " :" +
-                Arrays.stream(player2.getAllNumbers())
-                        .mapToObj(String::valueOf)
-                        .collect(Collectors.joining(" "))
-        );
+        player1.writePlayersNumbers();
+        player2.writePlayersNumbers();
         player1.clearNumbers();
         player2.clearNumbers();
     }
@@ -52,7 +43,7 @@ public class GuessNumber {
     private boolean compareNumbers(Player player) {
         if (player.getNumber() == hiddenNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число " + hiddenNumber +
-                    " c " + player.index + " попытки ");
+                    " c " + player.getIndex() + " попытки ");
             return true;
         }
         String moreOrLess = (player.getNumber() < hiddenNumber) ? "меньше" : "больше";
