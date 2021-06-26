@@ -1,7 +1,6 @@
 package com.startjava.lesson_2_3_4.game;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class Player {
 
@@ -31,15 +30,11 @@ public class Player {
 
     public void setNumber(int number) {
         numbers[index] = number;
-        this.index++;
+        index++;
     }
 
     public void clearNumbers() {
         Arrays.fill(numbers, 0, index, 0);
         index = 0;
-    }
-
-    public void writePlayersNumbers() {
-
     }
 }

@@ -18,10 +18,10 @@ public class GuessNumber {
         Scanner in = new Scanner(System.in);
 
         do {
-            if (player1.getIndex() < 10 || player2.getIndex() < 10) {
-                setPlayersNumbers(player1, in);
+            if (player1.getIndex() < 10 && player2.getIndex() < 10) {
+                setPlayersNumber(player1, in);
                 if (!compareNumbers(player1)) {
-                    setPlayersNumbers(player2, in);
+                    setPlayersNumber(player2, in);
                 } else {
                     break;
                 }
@@ -30,8 +30,8 @@ public class GuessNumber {
                 break;
             }
         } while (!compareNumbers(player2));
-        writeAllPlayersNumbers(player1);
-        writeAllPlayersNumbers(player2);
+        showEnteredNumbers(player1);
+        showEnteredNumbers(player2);
         player1.clearNumbers();
         player2.clearNumbers();
     }
@@ -47,12 +47,12 @@ public class GuessNumber {
         return false;
     }
 
-    private void setPlayersNumbers(Player player, Scanner in) {
+    private void setPlayersNumber(Player player, Scanner in) {
         System.out.println(player.getName() + ", введите число : ");
         player.setNumber(in.nextInt());
     }
 
-    private void writeAllPlayersNumbers(Player player) {
+    private void showEnteredNumbers(Player player) {
         System.out.println("Числа игрока " + player.getName() + " :" +
                 Arrays.stream(player.getAllNumbers())
                         .mapToObj(String::valueOf)
