@@ -19,13 +19,9 @@ public class GuessNumber {
 
         do {
             if (player1.getIndex() < 10 || player2.getIndex() < 10) {
-                System.out.println(player1.getName() + ", введите число : ");
-                player1.setNumber(in.nextInt());
-                player1.addIndex();
+                setPlayersNumbers(player1, in);
                 if (!compareNumbers(player1)) {
-                    System.out.println(player2.getName() + ", введите число : ");
-                    player2.setNumber(in.nextInt());
-                    player2.addIndex();
+                    setPlayersNumbers(player2, in);
                 } else {
                     break;
                 }
@@ -34,8 +30,8 @@ public class GuessNumber {
                 break;
             }
         } while (!compareNumbers(player2));
-        player1.writePlayersNumbers();
-        player2.writePlayersNumbers();
+        writeAllPlayersNumbers(player1);
+        writeAllPlayersNumbers(player2);
         player1.clearNumbers();
         player2.clearNumbers();
     }
@@ -49,5 +45,18 @@ public class GuessNumber {
         String moreOrLess = (player.getNumber() < hiddenNumber) ? "меньше" : "больше";
         System.out.println("Данное число " + moreOrLess + " того, что загадал компьютер");
         return false;
+    }
+
+    private void setPlayersNumbers(Player player, Scanner in) {
+        System.out.println(player.getName() + ", введите число : ");
+        player.setNumber(in.nextInt());
+    }
+
+    private void writeAllPlayersNumbers(Player player) {
+        System.out.println("Числа игрока " + player.getName() + " :" +
+                Arrays.stream(player.getAllNumbers())
+                        .mapToObj(String::valueOf)
+                        .collect(Collectors.joining(" "))
+        );
     }
 }

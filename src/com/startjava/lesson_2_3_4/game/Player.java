@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 public class Player {
 
     private String name;
-    private int[] numbers = new int[10];
     private int index;
+    private int[] numbers = new int[10];
 
     public Player(String name) {
         this.name = name;
@@ -15,10 +15,6 @@ public class Player {
 
     public int getIndex() {
         return index;
-    }
-
-    public void addIndex() {
-        this.index++;
     }
 
     public String getName() {
@@ -35,6 +31,7 @@ public class Player {
 
     public void setNumber(int number) {
         numbers[index] = number;
+        this.index++;
     }
 
     public void clearNumbers() {
@@ -43,10 +40,6 @@ public class Player {
     }
 
     public void writePlayersNumbers() {
-        System.out.println("Числа игрока " + getName() + " :" +
-                Arrays.stream(getAllNumbers())
-                        .mapToObj(String::valueOf)
-                        .collect(Collectors.joining(" "))
-        );
+
     }
 }
